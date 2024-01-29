@@ -8,26 +8,63 @@
         <script src="flappybird.js"></script>
     </head>
     <body>
+        <div class="start-page start-page_active">
+            <div class="start-page__content">
+                <p class="start-page__title">
+                    Полёт птички!<br>Игра для тех, кто любит скорость
+                </p>
+                <p class="start-page__subtitle">
+                    Сейчас ваш смартфон превратится в птичий симулятор. Тапайте по экрану, облетайте препятствия и постарайтесь набрать как можно больше очков.
+                </p>
+                <div class="start-page__images">
+                    <img class="start-page__bird" src="./flappy.png" alt="">
+                    <img class="start-page__coin" src="./silver_coin.png" alt="">
+                </div>
+                <button class="start-page__button">
+                    <span class="start-page__button-text">Полетели!</span>
+                </button>
+            </div>
+        </div>
         <div class="game-over">
             <div class="game-over__content">
-                <p class="game-over__text">Конец игры.</p>
-                <p class="game-over__score">Ты собрал:</p>
-                <div class="game-over__info-score">
-                    <img class="game-over__img" src="./gold_coin.png" alt="">
-                    <p> - </p>
-                    <p class="game-over__score-count"></p>
+                <div class="game-over__text-block">
+                    <div class="game-over__score-count">
+                        <span class="game-over__score">20</span>
+                    </div>
+                    <p class="game-over__text">Я - лучшая птичка на планете!</p>
+                    <p class="game-over__subtext">
+                        Соберу все пиксельные артефакты, пока играет моя любимая песня.
+                    </p>
                 </div>
-                <div class="game-over__info-score">
-                    <img class="game-over__img" src="./silver_coin.png" alt="">
-                    <p> - </p>
-                    <p class="game-over__score-count"></p>
+                <div class="game-over__other-bg">
+                    <div class="game-over__about-score">
+                        <p class="game-over__about-score-text">
+                            Вы собрали:
+                        </p>
+                        <div class="game-over__items-container">
+                            <div class="game-over__about-score-item">
+                                <img src="./gold_coin.png" alt="">
+                                <img src="./close.png" alt="">
+                                <p class="game-over__score-num">3</p>
+                            </div>
+                            <div class="game-over__about-score-item">
+                                <img src="./silver_coin.png" alt="">
+                                <img src="./close.png" alt="">
+                                <p class="game-over__score-num">3</p>
+                            </div>
+                            <div class="game-over__about-score-item">
+                                    <img src="./bronze_coin.png" alt="">
+                                    <img src="./close.png" alt="">
+                                    <p class="game-over__score-num">3</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="game-over__restart" type="button">
+                        <span class="game-over__restart-text">
+                            Начать заново
+                        </span>
+                    </button>
                 </div>
-                <div class="game-over__info-score">
-                    <img class="game-over__img" src="./bronze_coin.png" alt="">
-                    <p> - </p>
-                    <p class="game-over__score-count"></p>
-                </div>
-                <button class="game-over__restart" type="button">Начать заново</button>
             </div>
         </div>
         <canvas id="board"></canvas>

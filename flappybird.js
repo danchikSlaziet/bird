@@ -55,6 +55,7 @@ let bronzeCoinImg;
 let gameOverPage;
 let scoreCountArray;
 let gameRestart;
+let scoreFinalPage;
 
 let coinTypes = ["gold", "silver", "bronze"]; // Три вида монеток
 let collectedCoins = { "gold": 0, "silver": 0, "bronze": 0 }; // Счетчик собранных монеток
@@ -72,10 +73,28 @@ function resetGame() {
 }
 
 window.onload = function () {
+    const startPage = document.querySelector('.start-page');
+    const startPageButton = startPage.querySelector('.start-page__button');
     gameOverPage = document.querySelector('.game-over');
-    scoreCountArray = document.querySelectorAll('.game-over__score-count');
+    scoreFinalPage = document.querySelector('.game-over__score');
+    scoreCountArray = document.querySelectorAll('.game-over__score-num');
     board = document.getElementById("board");
     gameRestart = document.querySelector('.game-over__restart');
+    function changeImagesOnStartPage() {
+        let coinImages = ['./gold_coin.png', './silver_coin.png', './bronze_coin.png'];
+        let currentImageIndex = 0;
+        let coinElement = document.querySelector('.start-page__coin');
+        
+        const intervalIdImages = setInterval(() => {
+            currentImageIndex = (currentImageIndex + 1) % coinImages.length;
+            coinElement.src = coinImages[currentImageIndex];
+        }, 1200);
+    
+        startPageButton.addEventListener('click', () => {
+            clearInterval(intervalIdImages);
+        })
+    }
+    changeImagesOnStartPage();
 
     // Добавляем обработчик событий после того, как gameRestart будет найден
     if (gameRestart) {
@@ -90,10 +109,6 @@ window.onload = function () {
     Resize();
     window.addEventListener("resize", Resize); // Change the canvas size with the window size
     context = board.getContext("2d"); //used for drawing on the board
-
-    //draw flappy bird
-    // context.fillStyle = "green";
-    // context.fillRect(bird.x, bird.y, bird.width, bird.height);
 
     //load images
     birdImg = new Image();
@@ -117,10 +132,12 @@ window.onload = function () {
 
     bronzeCoinImg = new Image();
     bronzeCoinImg.src = "./bronze_coin.png"; // Путь к изображению бронзовой монетки
-
-    requestAnimationFrame(update);
-    setInterval(placePipes, 1500); // Переименовано для унификации функции генерации объектов
-    document.addEventListener("keydown", handleKeyPress);
+    startPageButton.addEventListener('click', () => {
+        startPage.classList.remove('start-page_active');
+        requestAnimationFrame(update);
+        setInterval(placePipes, 1500); // Переименовано для унификации функции генерации объектов
+        document.addEventListener("keydown", handleKeyPress);
+    });
 }
 
 function handleRestartClick() {
@@ -209,18 +226,13 @@ function update() {
 
     // Draw the number of collected coins
     context.fillStyle = "white";
-    context.font = "20px sans-serif";
-    context.fillText(`Gold: ${collectedCoins.gold} | Silver: ${collectedCoins.silver} | Bronze: ${collectedCoins.bronze}`, 5, 25);
+    context.font = "40px Pixel";
+    context.fillText(`Счёт: ${collectedCoins.gold + collectedCoins.silver + collectedCoins.bronze}`, 5, 25);
 
     //clear pipes
     while (pipeArray.length > 0 && pipeArray[0].x < -pipeWidth) {
         pipeArray.shift();
     }
-
-    //score
-    context.fillStyle = "white";
-    context.font = "25px sans-serif";
-    // context.fillText(score, 5, 45);
 
     if (gameOver) {
         scoreCountArray.forEach((elem, index) => {
@@ -234,6 +246,7 @@ function update() {
                 elem.textContent = `${collectedCoins["bronze"]}`;
             }
         });
+        scoreFinalPage.textContent = `${collectedCoins["gold"] + collectedCoins["silver"] + collectedCoins["bronze"]}`;
         gameOverPage.classList.add('game-over_active');       
         // Сброс счета по монеткам при проигрыше
         collectedCoins = { "gold": 0, "silver": 0, "bronze": 0 };
@@ -284,7 +297,6 @@ function placeCoins() {
     if (!isCoinOverlappingWithPipes(coin)) {
         coinArray.push(coin);
     }
-    console.log(coinArray);
 }
 
 function generateRandomCoinPosition() {
