@@ -100,10 +100,8 @@ window.onload = function () {
     if (gameRestart) {
         gameRestart.addEventListener('click', function () {
             gameOverPage.classList.remove('game-over_active');
-            setTimeout(() => {
-                resetGame();  // Сброс игры
-                startGame();
-            }, 0)
+            resetGame();  // Сброс игры
+            startGame();
         });
     }
     Resize();

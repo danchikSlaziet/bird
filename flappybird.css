@@ -1,9 +1,15 @@
 @font-face{
     font-family: "Pixel";
-    src: url("./fonts/Pixel.woff2") format('woff2'), url("./fonts/Pixel.woff") format('woff'),  url("./fonts/Pixel.ttf") format('ttf');
+    src: url("./fonts/Pixel.woff") format('woff'),  url("./fonts/Pixel.ttf") format('ttf');
     font-weight: 500;
     font-style: normal;
 }
+@font-face{
+    font-family: "Courier New";
+    src: url("./fonts/CourierNewPSMT.woff2") format('woff2'), url("./fonts/CourierNewPSMT.woff") format('woff');
+    font-weight: 500;
+    font-style: normal;
+  }
 body {
     text-align: center;
     margin: 0;
@@ -249,7 +255,7 @@ body, html {
     width: 28px;
 }
 .game-over__about-score-item p {
-    font-family: cursive;
+    font-family: "CourierNew", sans-serif;
     color: #000;
     font-size: 80px;
     margin: 0;
