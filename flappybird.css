@@ -1,0 +1,84 @@
+@font-face{
+    font-family: "Courier New";
+    src: url("./fonts/CourierNewPSMT.woff2") format('woff2'), url("./fonts/CourierNewPSMT.woff") format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+body {
+    font-family:'Courier New', Courier, monospace;
+    text-align: center;
+    margin: 0;
+}
+body, html
+{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body, html {
+    width: 100%;
+	height: 100%;
+    overflow: hidden;
+}
+
+#board {
+    width: 100%;
+	height: 100%;
+    background-image: url("./flappybirdbg.png");
+}
+
+.game-over {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, .4);
+	opacity: 0;
+	visibility: hidden;
+	transition: visibility .24s, opacity .24s linear;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.game-over__content {
+	background-color: blanchedalmond;
+	border-radius: 20px;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.game-over__restart {
+	text-transform: uppercase;
+	background-color: antiquewhite;
+	border: 1px solid salmon;
+	border-radius: 5px;
+	outline: none;
+	padding: 5px 15px;
+	transition: opacity .24s linear;
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 20px;
+}
+
+.game-over__btn:hover {
+	cursor: pointer;
+	opacity: .7;
+}
+
+.game-over_active {
+	opacity: 1;
+	visibility: visible;
+}
+
+.game-over__img {
+    width: 40px;
+    height: 40px;
+}
+
+.game-over__info-score {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
