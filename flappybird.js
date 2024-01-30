@@ -401,7 +401,7 @@ function moveBird(e) {
             // Проверяем, что игра не завершена
             if (!gameOver) {
                 // Прыгаем
-                velocityY = -8;
+                velocityY = -5.5;
 
                 // Сброс игры
                 if (gameOver) {
@@ -453,7 +453,7 @@ function startGame() {
         // Инициализируем начальные значения переменных и начинаем игру
         gameOver = false;
         bird.y = birdY;
-        velocityY = 0;
+        velocityY = -5.5;
         pipeArray = [];
         coinArray = [];
         score = 0;
