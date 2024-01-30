@@ -31,7 +31,7 @@ let bottomPipeImg;
 //physics
 let velocityX = -2; //pipes moving left speed
 let velocityY = 0; //bird jump speed
-let gravity = 0.4;
+let gravity = 0.2;
 
 let gameOver = false;
 let isPaused = false;
@@ -258,7 +258,7 @@ function handleTouchStart(e) {
     // Проверяем, что игра не завершена
     if (!gameOver) {
         //jump
-        velocityY = -4.75;
+        velocityY = -3.75;
 
         //reset game
         if (gameOver) {
@@ -401,7 +401,7 @@ function moveBird(e) {
             // Проверяем, что игра не завершена
             if (!gameOver) {
                 // Прыгаем
-                velocityY = -4.75;
+                velocityY = -3.75;
 
                 // Сброс игры
                 if (gameOver) {
@@ -453,7 +453,7 @@ function startGame() {
         // Инициализируем начальные значения переменных и начинаем игру
         gameOver = false;
         bird.y = birdY;
-        velocityY = -4.75;
+        velocityY = -3.75;
         pipeArray = [];
         coinArray = [];
         score = 0;
