@@ -258,7 +258,7 @@ function handleTouchStart(e) {
     // Проверяем, что игра не завершена
     if (!gameOver) {
         //jump
-        velocityY = -8;
+        velocityY = -5.5;
 
         //reset game
         if (gameOver) {
