@@ -258,7 +258,7 @@ function handleTouchStart(e) {
     // Проверяем, что игра не завершена
     if (!gameOver) {
         //jump
-        velocityY = -5.5;
+        velocityY = -4.75;
 
         //reset game
         if (gameOver) {
@@ -401,7 +401,7 @@ function moveBird(e) {
             // Проверяем, что игра не завершена
             if (!gameOver) {
                 // Прыгаем
-                velocityY = -5.5;
+                velocityY = -4.75;
 
                 // Сброс игры
                 if (gameOver) {
@@ -453,7 +453,7 @@ function startGame() {
         // Инициализируем начальные значения переменных и начинаем игру
         gameOver = false;
         bird.y = birdY;
-        velocityY = -5.5;
+        velocityY = -4.75;
         pipeArray = [];
         coinArray = [];
         score = 0;
